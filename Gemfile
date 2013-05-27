@@ -22,6 +22,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'authlogic'
 #gem "therubyracer", :require => 'v8'
 
 # To use ActiveModel has_secure_password

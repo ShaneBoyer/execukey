@@ -10,7 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130504215255) do
+ActiveRecord::Schema.define(:version => 20130521034720) do
+
+  create_table "clients", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at",   :null => false
+    t.string   "email"
+    t.integer  "lock_version"
+    t.datetime "updated_at",   :null => false
+    t.string   "phone"
+  end
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -25,15 +34,22 @@ ActiveRecord::Schema.define(:version => 20130504215255) do
     t.string   "firstName"
     t.string   "lastName"
     t.string   "email"
-    t.string   "password"
+    t.string   "crypted_password"
     t.string   "phone"
-    t.boolean  "confirmed"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.integer  "lock_version"
     t.integer  "company_id"
+    t.string   "password_salt"
+    t.string   "persistence_token"
+    t.string   "perishable_token"
+    t.integer  "failed_login_count"
+    t.datetime "last_login_at"
+    t.string   "last_login_ip"
   end
 
   add_index "users", ["company_id"], :name => "index_users_on_company_id"
+  add_index "users", ["email"], :name => "index_users_on_email"
+  add_index "users", ["perishable_token"], :name => "index_users_on_perishable_token"
 
 end

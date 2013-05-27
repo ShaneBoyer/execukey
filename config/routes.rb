@@ -1,8 +1,8 @@
-Rails1::Application.routes.draw do
-  resources :companies
-  resources :companies do
-    resources :users
-  end
+Rails1::Application.routes.draw do    
+#  resource :account, :controller => "users"
+  resources :users, :user_sessions
+#  resource :user
+  root :controller => "user_sessions", :action => "new"
 
   #get "home/index"
 
@@ -55,7 +55,7 @@ Rails1::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'home#index'
+  #root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 
