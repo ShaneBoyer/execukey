@@ -13,8 +13,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
+      current_user = @user
       flash[:notice] = "Account registered!"
-      redirect_back_or_default user_path
+      redirect_back_or_default user_url(current_user.id)
     else
       render :action => :new
     end

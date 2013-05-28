@@ -4,5 +4,6 @@ class User < ActiveRecord::Base
                   :password_salt, :persistence_token, :perishable_token, :failed_login_count, :last_login_at, :last_login_ip
 
   acts_as_authentic do |c|    
+    
   end
 end
