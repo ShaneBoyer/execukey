@@ -1,6 +1,7 @@
 Rails1::Application.routes.draw do    
 #  resource :account, :controller => "users"
   resources :users, :user_sessions
+  resources :companies
 #  resource :user
   root :controller => "user_sessions", :action => "new"
 
