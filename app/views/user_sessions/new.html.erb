@@ -1,7 +1,8 @@
 <h1>Login</h1>
 
-<%= form_for @user_session, :url => user_sessions_path do |f| %>
-  <%= render "shared/error_messages", :target => @user_session %>
+<%= form_for @user_session, :url => { :action => "create" } do |f| %>
+  <%= #render "shared/error_messages", :target => @user_session 
+  %>
   <%= f.label :email %><br />
   <%= f.text_field :email %><br />
   <br />

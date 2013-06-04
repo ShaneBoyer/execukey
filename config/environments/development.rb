@@ -31,7 +31,11 @@ Rails1::Application.configure do
 
   # Do not compress assets
   config.assets.compress = false
-
+  config.assets.digest = true
+  
   # Expands the lines which load the assets
   config.assets.debug = true
+  
+  # Automatically inject JavaScript needed for LiveReload
+  config.middleware.insert_after(ActionDispatch::Static, Rack::LiveReload)
 end

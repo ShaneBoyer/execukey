@@ -1,11 +1,15 @@
 Rails1::Application.routes.draw do    
 #  resource :account, :controller => "users"
   resources :users, :user_sessions
-  resources :companies
+  resources :companies  
 #  resource :user
-  root :controller => "user_sessions", :action => "new"
+#  root :controller => "user_sessions", :action => "new"
+  match 'login' => "user_sessions#new",      :as => :login
+  match 'logout' => "user_sessions#destroy", :as => :logout
+  match 'signup' => "users#new", :as => :signup
 
-  #get "home/index"
+#  get "home/index"
+  root :to => 'home#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

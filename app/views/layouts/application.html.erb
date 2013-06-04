@@ -1,21 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" style="-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;">
 <head>
-  <title>ExecuKey</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0" />
+  <title>ExecuKey - Company Name</title>
+  <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico" />
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700' rel='stylesheet' type='text/css' />
+	
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<h1>ExecuKey</h1>
-<% if !current_user %>
-  <%= link_to "Register", new_user_path %> |
-  <%= link_to "Log In", new_user_session_path %> |
-<% else %>
-  <%= link_to "My Account", user_path %> |
-  <%= link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?" %>
-<% end %>
-
+	<div id="wrapper">
+		<div id="shell">
+			<div id="container">
+				<header id="header">
+					<h1 id="logo"><a href="#">Company Name</a></h1>
+					<div class="settingsnav">
+						<a href="#">Settings</a>
+						<%= link_to "Logout", "/logout", :method => :delete, :confirm => "Are you sure you want to logout?" %>
+					</div>
+				</header>
+				<nav id="navigation">
+					<a href="#" class="nav-btn">Appointments<span class="arr"></span></a>
+					<ul>
+						<li><a href="#">Clients</a></li>
+						<li><a href="#">Technicians</a></li>
+					</ul>
+				</nav> 
+			</div> 
+		</div> 
+	</div> 
+ 
 <p style="color: green"><%= flash[:notice] %></p>
 
 <%= yield %>
